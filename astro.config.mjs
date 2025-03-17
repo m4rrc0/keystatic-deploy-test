@@ -8,10 +8,8 @@ import vercel from "@astrojs/vercel";
 
 const adapter =
   (Boolean(process.env.NETLIFY) && netlify()) ||
-  (Boolean(process.env.CF_PAGES) && cloudflare()) ||
-  vercel();
-
-console.log(process.env);
+  (Boolean(process.env.CF_PAGES) && cloudflare({ platformProxy: { enabled: true, configPath: 'wrangler.jsonc', experimentalJsonConfig: true } })) ||
+  (Boolean(process.env.VERCEL_DEPLOYMENT_ID) && vercel());
 
 // https://astro.build/config
 export default defineConfig({
