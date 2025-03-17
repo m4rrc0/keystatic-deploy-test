@@ -5,14 +5,20 @@ import keystatic from "@keystatic/astro";
 import cloudflare from "@astrojs/cloudflare";
 import netlify from "@astrojs/netlify";
 import vercel from "@astrojs/vercel";
+import { LOCAL_BUILD, PREFERRED_HOSTING, NETLIFY_BUILD, CLOUDFLARE_BUILD, VERCEL_BUILD } from "./env";
 
-const adapter =
-  (Boolean(process.env.NETLIFY) && netlify()) ||
-  (Boolean(process.env.CF_PAGES) && cloudflare({ platformProxy: { enabled: true, configPath: 'wrangler.jsonc', experimentalJsonConfig: true } })) ||
-  (Boolean(process.env.VERCEL_DEPLOYMENT_ID) && vercel());
+const cloudflareOptions = {
+  platformProxy: { enabled: true, configPath: 'wrangler.jsonc', experimentalJsonConfig: true }
+}
+
+const adapter = LOCAL_BUILD
+  ? { netlify, cloudflare, vercel }[PREFERRED_HOSTING]()
+  : (NETLIFY_BUILD && netlify()) ||
+  (CLOUDFLARE_BUILD && cloudflare(cloudflareOptions)) ||
+  (VERCEL_BUILD && vercel());
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), markdoc(), keystatic()],
-  adapter,
+  adapter
 });

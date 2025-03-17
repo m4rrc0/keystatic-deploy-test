@@ -1,9 +1,17 @@
-import { config, fields, collection } from '@keystatic/core';
+import { config, fields, collection, type LocalConfig, type GitHubConfig } from '@keystatic/core';
+import { LOCAL_BUILD, REPO, REPO_OWNER, REPO_NAME } from './env';
+
+const localMode: LocalConfig['storage'] = {
+  kind: 'local',
+};
+
+const githubMode: GitHubConfig['storage'] = {
+  kind: 'github',
+  repo: REPO
+};
 
 export default config({
-  storage: {
-    kind: 'local',
-  },
+  storage: LOCAL_BUILD ? localMode : githubMode,
   collections: {
     posts: collection({
       label: 'Posts',
