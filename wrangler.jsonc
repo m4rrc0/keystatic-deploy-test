@@ -1,6 +1,6 @@
 {
     "name": "keystatic-deploy-test",
     "pages_build_output_dir": "./dist",
-    "compatibility_date": "Latest",
+    "compatibility_date": "2025-03-17",
     "send_metrics": true
-  }
+}
