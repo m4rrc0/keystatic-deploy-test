@@ -7,7 +7,6 @@ dist
 *.tgz
 _site
 _output
-public
 
 # code coverage
 coverage
