@@ -24,6 +24,7 @@
     "dotenv": "^16.4.7",
     "netlify-cli": "^19.0.2",
     "vercel": "^41.4.1",
+    "vite-plugin-node-polyfills": "^0.23.0",
     "wrangler": "^4.0.0"
   },
   "scripts": {
@@ -31,6 +32,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy:cf": "astro build && wrangler pages deploy",
+    "preview:cf": "astro build && wrangler pages dev"
   }
 }

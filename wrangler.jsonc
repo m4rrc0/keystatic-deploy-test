@@ -2,5 +2,8 @@
     "name": "keystatic-deploy-test",
     "pages_build_output_dir": "./dist",
     "compatibility_date": "2025-03-17",
+    "compatibility_flags": [
+      "nodejs_compat"
+    ],
     "send_metrics": true
 }

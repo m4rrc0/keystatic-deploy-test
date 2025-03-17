@@ -7,7 +7,7 @@ const localMode: LocalConfig['storage'] = {
 
 const githubMode: GitHubConfig['storage'] = {
   kind: 'github',
-  repo: REPO
+  repo: REPO || ''
 };
 
 export default config({
