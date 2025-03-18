@@ -1,7 +1,7 @@
 import { config, fields, collection, type LocalConfig, type GitHubConfig } from '@keystatic/core';
-import { LOCAL_BUILD, REPO, REPO_OWNER, REPO_NAME } from './env';
+import { LOCAL_BUILD, REPO, REPO_OWNER, REPO_NAME, NETLIFY_BUILD, CLOUDFLARE_BUILD, VERCEL_BUILD } from './env';
 
-console.log("KEYSTATIC", { LOCAL_BUILD, REPO, REPO_OWNER, REPO_NAME });
+console.log("KEYSTATIC", { LOCAL_BUILD, REPO, REPO_OWNER, REPO_NAME, NETLIFY_BUILD, CLOUDFLARE_BUILD, VERCEL_BUILD });
 
 const localMode: LocalConfig['storage'] = {
   kind: 'local',
