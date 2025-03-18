@@ -3,6 +3,8 @@ import { LOCAL_BUILD, REPO, REPO_OWNER, REPO_NAME, NETLIFY_BUILD, CLOUDFLARE_BUI
 
 console.log("KEYSTATIC", { LOCAL_BUILD, REPO, REPO_OWNER, REPO_NAME, NETLIFY_BUILD, CLOUDFLARE_BUILD, VERCEL_BUILD });
 
+console.log("import.meta.env: ", import.meta.env)
+
 const localMode: LocalConfig['storage'] = {
   kind: 'local',
 };
