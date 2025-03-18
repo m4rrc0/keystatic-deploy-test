@@ -1,9 +1,9 @@
 import { config, fields, collection, type LocalConfig, type GitHubConfig } from '@keystatic/core';
-import { LOCAL_BUILD, REPO, REPO_OWNER, REPO_NAME, NETLIFY_BUILD, CLOUDFLARE_BUILD, VERCEL_BUILD } from './env';
 
-console.log("KEYSTATIC", { LOCAL_BUILD, REPO, REPO_OWNER, REPO_NAME, NETLIFY_BUILD, CLOUDFLARE_BUILD, VERCEL_BUILD });
-
-console.log("import.meta.env: ", import.meta.env)
+const VERCEL_GIT_REPO_OWNER = import.meta.env.PUBLIC_VERCEL_GIT_REPO_OWNER;
+const VERCEL_GIT_REPO_SLUG = import.meta.env.PUBLIC_VERCEL_GIT_REPO_SLUG;
+const VERCEL_REPO = VERCEL_GIT_REPO_OWNER && VERCEL_GIT_REPO_SLUG && `${VERCEL_GIT_REPO_OWNER}/${VERCEL_GIT_REPO_SLUG}`;
+const REPO = import.meta.env.PUBLIC_REPO || VERCEL_REPO || '';
 
 const localMode: LocalConfig['storage'] = {
   kind: 'local',
@@ -11,11 +11,11 @@ const localMode: LocalConfig['storage'] = {
 
 const githubMode: GitHubConfig['storage'] = {
   kind: 'github',
-  repo: REPO || ''
+  repo: REPO
 };
 
 export default config({
-  storage: LOCAL_BUILD ? localMode : githubMode,
+  storage: import.meta.env.PUBLIC_KEYSTATIC_STORAGE_LOCAL ? localMode : githubMode,
   collections: {
     posts: collection({
       label: 'Posts',
