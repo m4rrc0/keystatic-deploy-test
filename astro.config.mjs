@@ -5,8 +5,8 @@ import keystatic from "@keystatic/astro";
 import cloudflare from "@astrojs/cloudflare";
 import netlify from "@astrojs/netlify";
 import vercel from "@astrojs/vercel";
-import { nodePolyfills } from 'vite-plugin-node-polyfills'
-import { LOCAL_BUILD, PREFERRED_HOSTING, NETLIFY_BUILD, CLOUDFLARE_BUILD, VERCEL_BUILD } from "./env";
+// import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import { LOCAL_BUILD, PREFERRED_HOSTING, NETLIFY_BUILD, CLOUDFLARE_BUILD, VERCEL_BUILD } from "./astro.config.env";
 
 const cloudflareOptions = {
   platformProxy: { enabled: true, configPath: 'wrangler.jsonc', experimentalJsonConfig: true }
@@ -22,7 +22,7 @@ const adapter = LOCAL_BUILD
 export default defineConfig({
   integrations: [react(), markdoc(), keystatic()],
   adapter,
-  vite: {
-    plugins: [nodePolyfills()]
-  }
+  // vite: {
+  //   plugins: [nodePolyfills()]
+  // }
 });

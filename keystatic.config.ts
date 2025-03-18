@@ -4,6 +4,7 @@ const VERCEL_GIT_REPO_OWNER = import.meta.env.PUBLIC_VERCEL_GIT_REPO_OWNER;
 const VERCEL_GIT_REPO_SLUG = import.meta.env.PUBLIC_VERCEL_GIT_REPO_SLUG;
 const VERCEL_REPO = VERCEL_GIT_REPO_OWNER && VERCEL_GIT_REPO_SLUG && `${VERCEL_GIT_REPO_OWNER}/${VERCEL_GIT_REPO_SLUG}`;
 const REPO = import.meta.env.PUBLIC_REPO || VERCEL_REPO || '';
+const PUBLIC_KEYSTATIC_STORAGE_LOCAL = import.meta.env.PUBLIC_KEYSTATIC_STORAGE_LOCAL || import.meta.env.DEV || false;
 
 const localMode: LocalConfig['storage'] = {
   kind: 'local',
@@ -15,7 +16,7 @@ const githubMode: GitHubConfig['storage'] = {
 };
 
 export default config({
-  storage: import.meta.env.PUBLIC_KEYSTATIC_STORAGE_LOCAL ? localMode : githubMode,
+  storage: PUBLIC_KEYSTATIC_STORAGE_LOCAL ? localMode : githubMode,
   collections: {
     posts: collection({
       label: 'Posts',
