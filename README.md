@@ -114,3 +114,4 @@ Cloudflare needs a special Vite config to work with React 19. You can find the c
 - [ ] Find a smart way to pass env variables from the server to the Vite app
 - [ ] Verify config for working locally with the different hosting providers' CLIs
 - [ ] ? Add config for the Keystatic Cloud storage mode
+- [ ] ? Try running with Bun or Deno to compare performance
