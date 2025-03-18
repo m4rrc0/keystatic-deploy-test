@@ -1,0 +1,16 @@
+PUBLIC_REPO=owner/my-keystatic-powered-repo
+# ⚠️ Recommended to set this explicitly. We try to guess it, and the logic can still be improved but to avoid any surprise, set it explicitly
+# Default inferred from package.json on the server | Repository to deploy to
+
+# PREFERRED_HOSTING=cloudflare
+# Default: "netlify" | Fallback hosting service for local dev
+
+# PUBLIC_KEYSTATIC_STORAGE_LOCAL=false
+# Default: import.meta.env.DEV | Whether to use Keystatic in local storage mode
+
+# Keystatic Github App
+KEYSTATIC_GITHUB_CLIENT_ID=Iazertyuiopqsdfghjkl
+KEYSTATIC_GITHUB_CLIENT_SECRET=azertyuiop1234567890QSDFGHJKLMwxcvbn123
+PUBLIC_KEYSTATIC_GITHUB_APP_SLUG=my-keystatic-github-app
+# This can be generated manually from here for example: https://keystatic-deploy-test.netlify.app/generate-keystatic-secret/
+KEYSTATIC_SECRET=a854d383d4f72903764cee89d0290c803f911600c87f0e28c69a4477698d6b865a2b319f15d4fea0218984b083d33b8eb8cce46765b2b639f9eef9849f1b6196

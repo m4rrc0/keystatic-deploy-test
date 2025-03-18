@@ -32,8 +32,6 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy:cf": "astro build && wrangler pages deploy",
-    "preview:cf": "astro build && wrangler pages dev",
     "generate-secret": "node generate-keystatic-secret.js"
   }
 }
